@@ -13,17 +13,40 @@
 </div>
 
 <div class = container style="position:relative">
-    {{post.author.user_name}} <br>
-    {{post.title}} <br>
-    {{post.title_image}} <br>
+    <div>
+        <span></span><h2><a class="btn btn-outline-secondary" href="{% url 'community:turnBack'  post.id %}">뒤로가기</a> </h2>
+    </div>
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h2 style = "text-align: center;"><a href="#" class="badge badge-success">작성자 : {{post.author.user_name}}</a></h2>
+        <h5 style = "text-align: center; font-size:x-large" class="display-4 font-weight-normal">title : {{post.title}}</h4><br>
+        <p style = "text-align: center;"class="lead font-weight-normal">{{post.content}}</p>
+        <p style = "text-align: center;" ><img>{{post.title_image}}</p>
+        <br>
+        <h5 style = "text-align: center; font-size: medium" class="display-4 font-weight-normal">생성일 : {{post.created_at}}</h5>
+        <h5 style = "text-align: center; font-size: medium" class="display-4 font-weight-normal">업데이트일 : {{post.updated_at}}</h5><br>
 
-    {% if post.is_title_more11 %}
-        {{ post.get_title_under11 }}
-    {% else %}
-        {{ post.content }}
-    {% endif %}<br>
-    {{post.createDate}} <br>
-    {{post.updateDate}} <br>
+        <div style = "float: right;">
+            <a href="#" style = "font-size: medium;" class="badge badge-warning">수정하기</a> <span></span> <a style = "font-size: medium;" href="#" class="badge badge-danger"data-toggle="modal" data-target="#exampleModal">삭제하기</a>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">삭제하시겠습니까?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                 <button type="button" class="btn btn-danger"><a href = "{% url 'community:postDelete' post.id %}">삭제</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
 </div>
 
   

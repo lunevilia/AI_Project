@@ -12,5 +12,11 @@ urlpatterns = [
     path('createPost_free/', views.createPost_free, name = "createPost_free"),
     path('createPost_review/', views.createPost_review, name = "createPost_review"),
     path('createPost_hire/', views.createPost_hire, name = "createPost_hire"),
+    
+    path('turnBack/<int:id>/', views.turnBack, name = "turnBack"),
     path('postDetail/<int:id>/', views.postDetail, name = "postDetail"),
+    path('postDelete/<int:id>/', views.postDelete, name = "postDelete"),
+    path('postEdit/<int:id>/', views.postEdit, name = "postEdit"),
+
+    #path('turnBack/', views.turnBack, name = "turnBack"),
 ]

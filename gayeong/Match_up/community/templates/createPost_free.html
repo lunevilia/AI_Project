@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block sty %} 
+
+{% endblock %}
+
+{% block content %} 
+
+<div class = "container" style="position:relative">
+  <form action = "{% url 'community:createPost_free' %}" method = "post">
+    {% csrf_token %}
+    {{form.title}}
+    {{form.title_image}}
+    {{form.content}}
+
+    <input type = "submit" value = "글쓰기" >
+    <!-- <a class="btn btn-primary" href = "{% url 'community:createPost_free' %}" role="button" style = "float: right; margin-top: 0.3rem; margin-bottom:1rem;">글쓰기</a> -->
+    <!-- href = "{% url 'community:createPost_free' %}" -->
+  </form>
+</div>
+
+  
+
+
+{% endblock %}
