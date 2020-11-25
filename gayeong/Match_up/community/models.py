@@ -3,6 +3,7 @@ from django.conf import settings
 from account.models import *
 
 # Create your models here.
+
 class Category(models.Model):
     name = models.CharField(max_length=50, help_text="블로그 글의 분류를 입력하세요.")
     num_hit = models.PositiveIntegerField(default = 0)
@@ -37,3 +38,10 @@ class Community_Post(TimeDate):
     
     def get_title_under11(self):
         return self.title[:11]
+
+
+
+
+    
+
+

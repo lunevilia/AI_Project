@@ -13,3 +13,12 @@ class SignupForm(forms.ModelForm):
             'f_region': '',
         }
         
+class TeamForm(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = ('team_name', 'team_image','region')
+        labels = {
+            'team_name': '',
+            'team_image': '',
+            'region': '',
+        }

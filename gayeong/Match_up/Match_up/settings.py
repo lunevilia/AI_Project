@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'community',
-    'team_page',
+    'teampage',
 ]
 
 MIDDLEWARE = [

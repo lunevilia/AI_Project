@@ -7,9 +7,10 @@
 {% endblock %}
 
 {% block content %}
+
 <form action = "{% url 'community:postUpdate' post.id %}" method = "POST">
  {% csrf_token %}
- <div></div>{{dform.title}}
+ {{dform.title}}
  <input type = "submit" value = "수정">
 </form>
 
