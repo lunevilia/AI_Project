@@ -147,20 +147,20 @@ def createPost_hire(request):
         return render(request, 'createPost_hire.html', context)
 
 def turnBack(request, id):
-    post = Community_Post.objects.filter(pk = id)
-    cat = post.category.name
-    print(post.category)
-    if(cat == "자유게시판"):
+    post = Community_Post.objects.get(pk = id)
+    cat = post.category.related_val
+    print(cat)
+    if(cat == (1,)):
         return redirect('/free_board')
 
-    elif(cat == "경기 후기"):
+    elif(cat == (2,)):
         return redirect('/review_board')
 
-    elif(cat == "용병 모집"):
+    elif(cat == (3,)):
         return redirect('/hire_board')
-
     else:
-        return redirect('account:main')
+
+        return redirect("/")
 
     
 def postDetail(request, id):

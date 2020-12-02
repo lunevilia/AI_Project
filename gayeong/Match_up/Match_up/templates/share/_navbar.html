@@ -40,7 +40,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'account:main' %}" style="color: rgb(86, 145, 255) fon; font-size: large;">Match Up</a>
+      <a class="navbar-brand" href="{% url 'account:main' %}" style="color: rgb(95, 151, 255); font-size: large; font-weight: bold;">Match Up</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -67,7 +67,7 @@
               팀
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{% url 'teampage:management' %}">팀 정보</a>
+              <a class="dropdown-item" href="{% url 'teampage:teaminfo' %}">팀 정보</a>
               <a class="dropdown-item" href="{% url 'teampage:simulation' %}">시뮬레이션</a>
               <a class="dropdown-item" href="{% url 'teampage:management' %}">팀 관리</a>
               <a class="dropdown-item" href="{% url 'teampage:management' %}">팀 생성(테스트)</a>

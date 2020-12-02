@@ -40,7 +40,7 @@ class Team_Post(TimeDate):
     title_image = models.ImageField(upload_to = 'image', blank=True)
     content = models.TextField()
     importent = models.CharField(max_length=10, choices=ZeroOrOne)
-
+    
 
     def __str__(self):
         return self.title

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Team_Create{% endblock %}
+
+{% load static %}
+
+
+{% block sty %} 
+    <style>
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+        .led {
+            width: 100%;
+            margin: 30px auto; 
+            background: #efefef; 
+            text-align: center; 
+            color: rgb(63, 63, 63); 
+            font-family: sans-serif; 
+            transition: ease .3s;
+        }
+        form{
+            width: 100%;
+            text-align: center;
+            margin: 30px auto; 
+        }
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class = "led">
+            <h3>팀 생성</h3>
+        </div>
+
+        <div style = "padding-left: 3%;">
+            <h2><a class="btn btn-outline-secondary" href="{% url 'teampage:info_turnBack'%}">뒤로가기</a> </h2>
+        </div>
+
+        <form action = "" method="POST">
+            {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p>팀 명</p>
+                        <p>{{tform.team_name}}</p>
+
+                        <p>팀 이미지</p>
+                        <p>{{tform.team_image}}</p>
+
+                        <p>팀 주 활동지역</p>
+                        <p>{{tform.region}}</p>
+
+                        <p>팀 소개</p>
+                        <input name = "intro" type = "text" placeholder = "팀을 소개해주세요">
+
+                        <p></p>
+                        <input class="btn btn-primary" type = "submit" value = "팀 생성">
+                    </div>
+                </div>
+
+        </form>
+    {% else %}
+        <div class = "led">
+            <h3>로그인 후 진행해주세요</h3>
+        </div>
+    
+        
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block title %}teampage{% endblock %}
+
+{% load static %}
+
+
+{% block sty %} 
+    <style>
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+        .marketing .col-lg-5 {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        #for-padding-yes{
+            line-height: 50px;
+        }
+        #for-padding-yes p{
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            vertical-align: middle;
+        }
+        #not-have-team{
+            margin-top: 3%;
+            margin-left: 30%;
+            margin-right:30%;
+            text-align: center;
+        }
+        #team-button{
+            font-size: large;
+            margin:1%
+        } 
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style = "padding-left: 3%;">
+        <h2><a class="btn btn-outline-secondary"  href="{% url 'teampage:info_turnBack'%}">뒤로가기</a> </h2>
+    </div>
+    {% for team in team_list %}
+        
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+            <div class="col-lg-5">
+                <p></p>
+                <img class="rounded-rectangle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2><span class="badge badge-pill badge-info">{{team.team_name}}</span></h2>
+                <p>{{team.region}}</p>
+            
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-5" id = "for-padding-yes">
+                <p style = "vertical-align: middle;">{{team.intro}}</p>
+                <a href = "{% url 'teampage:teamdetail' team.id %}" class="btn btn-outline-secondary">버튼</a>
+            </div><!-- /.col-lg-4 -->
+                
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+
+
+        </div>
+    {% endfor %}
+
+{% endblock %}

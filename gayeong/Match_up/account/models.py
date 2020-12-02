@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -16,15 +15,18 @@ first_region = [
     ]
 
 class Team(models.Model):
-
+    king = models.CharField(max_length=13)
     team_name = models.CharField(max_length = 15, unique = True)
     personnel = models.PositiveIntegerField(default = 0)
     team_image = models.ImageField(upload_to = 'team_image', blank = True)
     region = models.CharField(max_length = 7, choices=first_region)
     phone = models.CharField(max_length=11)
+    intro = models.CharField(max_length=20, default="안녕하세요")
+
 
     def __str__(self):
         return self.team_name
+
 
 
 class Profile(models.Model):
@@ -40,10 +42,13 @@ class Profile(models.Model):
     w_region = models.CharField(max_length = 7, choices = two_region, default = "시, 도를 먼저 선택해주세요")
     age = models.PositiveIntegerField(null = True)
 
-    teams = models.ManyToManyField(Team, help_text="원하는 팀은 선택하세요")
+    teams = models.ManyToManyField(Team, help_text="원하는 팀은 선택하세요", blank = True)
 
     def __str__(self):
         return self.user_name
+
+    def teas_valid(self):
+        return self.teams.all().count() == 0
 
 
     
